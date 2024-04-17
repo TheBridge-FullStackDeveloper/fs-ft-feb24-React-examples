@@ -6,11 +6,10 @@ function TravelItem(props) {
     <article>
       <h3>{props.title}</h3>
       <p>{props.desc}</p>
-      <img
-        src={props.img_url}
-        width={200}
-        alt={props.title}
-      />
+
+      <img src={props.img_url} width={200} alt={props.title} />
+      <br/>
+      <button onClick={()=>props.delete()}>Borrar</button>
     </article>
   );
 }
