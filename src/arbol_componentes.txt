@@ -1,0 +1,18 @@
+ÁRBOL DE COMPONENTES DE MI APP (sujeto a cambios)
+App --> App.jsx
+    Header --> Header.jsx
+        Logo
+        Nav
+            Link*3
+            LogButton
+    MainComponent --> MainComponent.jsx
+        TravelList --> TravelList.jsx <section>
+            TravelItem --> TravelItem.jsx <article>
+            TravelItem
+            TravelItem
+        SideInfo --> SideInfo.jsx --> <aside>
+            SideCard --> SideCard.jsx --> <article>
+            SideCard
+            SideCard
+
+    Footer --> Footer.jsx --> <footer>
