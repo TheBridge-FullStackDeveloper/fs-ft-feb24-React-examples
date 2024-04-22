@@ -41,13 +41,49 @@ function TravelList() {
     setList(remainingItems); // modifica el estado con lo restante
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const title = e.target.title.value;
+    const desc = e.target.desc.value;
+    const img_url = e.target.img_url.value;
+    
+    const item = { title, desc, img_url }; // Nuevo objeto destino
+    setList([...list, item]); // Añade el nuevo destino a la lista
+    console.log("*******");
+    console.log(item);
+    console.log(list);
+  }
+
   return (
     <section>
       <h2>Aquí va TravelList</h2>
       <button onClick={clearItems}>Borrar todo</button>
       <button onClick={resetItems}>Recargar</button>
       <button onClick={createItem}>Crear destino</button>
+
+
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="name">Título</label>
+        <br />
+        <input type="text" name="title" />
+        <br />
+
+        <label htmlFor="price">Descripción</label>
+        <br />
+        <input type="text" name="desc" />
+        <br />
+
+        <label htmlFor="url">URL imagen</label>
+        <br />
+        <input type="url" name="img_url" />
+        <br />
+
+        <button type="submit">Crear destino</button>
+      </form>
+
       {paintItems()}
+
     </section>
   );
 }
