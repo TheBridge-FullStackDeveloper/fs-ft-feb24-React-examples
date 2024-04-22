@@ -5,6 +5,11 @@ import data from "./data"; // Datos iniciales
 function TravelList() {
   //Estado inicial: list = data --> [{},{},{},{},{},{}]
   const [list, setList] = useState(data); // [{},{},{}] lista de items
+  const [values, setValues] = useState({
+    title: "",
+    desc: "",
+    img_url: "",
+  });
 
   const paintItems = () =>
     list.map((item, index) => (
@@ -47,13 +52,21 @@ function TravelList() {
     const title = e.target.title.value;
     const desc = e.target.desc.value;
     const img_url = e.target.img_url.value;
-    
+
     const item = { title, desc, img_url }; // Nuevo objeto destino
-    setList([...list, item]); // Añade el nuevo destino a la lista
+    setList([item,...list]); // Añade el nuevo destino a la lista al principio
     console.log("*******");
     console.log(item);
     console.log(list);
-  }
+  };
+
+  const handleChange = (e) => {
+    console.log(e.target.name, e.target.value);
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   return (
     <section>
@@ -62,28 +75,38 @@ function TravelList() {
       <button onClick={resetItems}>Recargar</button>
       <button onClick={createItem}>Crear destino</button>
 
-
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Título</label>
         <br />
-        <input type="text" name="title" />
+        <input type="text" name="title" onChange={handleChange} />
         <br />
 
         <label htmlFor="price">Descripción</label>
         <br />
-        <input type="text" name="desc" />
+        <input type="text" name="desc" onChange={handleChange} />
         <br />
 
         <label htmlFor="url">URL imagen</label>
         <br />
-        <input type="url" name="img_url" />
+        <input type="url" name="img_url" onChange={handleChange} />
         <br />
-
+        
+        {values.title && values.desc && values.img_url?
         <button type="submit">Crear destino</button>
+        :<></>}
+        
       </form>
 
-      {paintItems()}
+    {values.title || values.desc || values.img_url?
+      <div>
+        <h4>Nuevo destino a crear</h4>
+        <p>Título:{values.title}</p>
+        <p>Descripción: {values.desc}</p>
+        <p>URL:{values.img_url}</p>
+      </div>: null}
 
+
+      {paintItems()}
     </section>
   );
 }
