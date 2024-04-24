@@ -20,7 +20,7 @@ function TravelList() {
         title={item.title}
         desc={item.desc}
         img_url={item.img_url}
-        delete={() => deleteItem(index)}
+        deleteItem={() => deleteItem(index)}
       />
     ));
 

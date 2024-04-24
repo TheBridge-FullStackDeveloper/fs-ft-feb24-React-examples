@@ -1,7 +1,17 @@
-import React from "react";
+import {useState} from "react";
+import FormContact from "./FormContact";
+import CardContact from "./CardContact";
+
 
 const Contact = () => {
-  return <section>Contact</section>;
+  // Creamos un estado para guardar el mensaje que se envía desde el formulario
+  const [message, setMessage] = useState(''); 
+
+  return <section>
+    <h2>Contact</h2>
+    <FormContact setMessage={setMessage}/>
+    <CardContact message={message}/>
+  </section>;
 };
 
 export default Contact;

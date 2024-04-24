@@ -1,15 +1,15 @@
 // rfce
 import React from "react";
 
-function TravelItem(props) {
+function TravelItem({title, desc, img_url, deleteItem}) {
   return (
     <article>
-      <h3>{props.title}</h3>
-      <p>{props.desc}</p>
+      <h3>{title}</h3>
+      <p>{desc}</p>
 
-      <img src={props.img_url} width={200} alt={props.title} />
+      <img src={img_url} width={200} alt={title} />
       <br/>
-      <button onClick={()=>props.delete()}>Borrar</button>
+      <button onClick={()=>deleteItem()}>Borrar</button>
     </article>
   );
 }
