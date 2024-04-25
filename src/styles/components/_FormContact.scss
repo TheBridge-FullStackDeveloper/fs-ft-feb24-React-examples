@@ -1,0 +1,11 @@
+
+@import '../utils/mixins.scss';
+
+.form-contact{
+    @include centered-column-layout;
+    gap:16px;
+
+    &>input{
+        @include input;
+    }
+}

@@ -10,8 +10,7 @@ import Topic from "./Topic";
 
 function MainComponent() {
   return (
-    <main>
-      <h2>Este es el MainComponent</h2>
+    <main className="main">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/travel" element={<TravelList />} />

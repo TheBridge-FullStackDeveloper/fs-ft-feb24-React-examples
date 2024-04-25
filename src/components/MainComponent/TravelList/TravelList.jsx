@@ -1,6 +1,8 @@
 import React, { useState, useRef } from "react";
 import TravelItem from "./TravelItem";
 import data from "./data"; // Datos iniciales
+import TravelCard from "../TravelCard";
+
 
 function TravelList() {
   //Estado inicial: list = data --> [{},{},{},{},{},{}]
@@ -15,7 +17,7 @@ function TravelList() {
 
   const paintItems = () =>
     list.map((item, index) => (
-      <TravelItem
+      <TravelCard
         key={index}
         title={item.title}
         desc={item.desc}
@@ -56,7 +58,7 @@ function TravelList() {
     const img_url = e.target.img_url.value;
 
     const item = { title, desc, img_url }; // Nuevo objeto destino
-    setList([item,...list]); // Añade el nuevo destino a la lista al principio
+    setList([item, ...list]); // Añade el nuevo destino a la lista al principio
     console.log("*******");
     console.log(item);
     console.log(list);
@@ -77,44 +79,48 @@ function TravelList() {
   };
 
   return (
-    <section>
+    <section className="travel-list">
       <h2>Aquí va TravelList</h2>
-      <button onClick={clearItems}>Borrar todo</button>
-      <button onClick={resetItems}>Recargar</button>
-      <button onClick={createItem}>Crear destino</button>
+      <div className="button-set">
+        <button onClick={clearItems}>Borrar todo</button>
+        <button onClick={resetItems}>Recargar</button>
+        <button onClick={createItem}>Crear destino</button>
+      </div>
 
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Título</label>
-        <br />
-        <input type="text" name="title" onChange={handleChange} ref={titleRef}/>
-        <br />
+      <form onSubmit={handleSubmit} className="form">
+        <div>
+          <label htmlFor="name">Título</label>
+          <input type="text" name="title" onChange={handleChange} ref={titleRef} />
+        </div>
 
-        <label htmlFor="price">Descripción</label>
-        <br />
-        <input type="text" name="desc" onChange={handleChange} />
-        <br />
+        <div>
+          <label htmlFor="price">Descripción</label>
+          <input type="text" name="desc" onChange={handleChange} />
+        </div>
 
-        <label htmlFor="url">URL imagen</label>
-        <br />
-        <input type="url" name="img_url" onChange={handleChange} />
-        <br />
-        
-        {values.title && values.desc && values.img_url?
-        <button type="submit">Crear destino</button>
-        :<></>}
-        
+        <div>
+          <label htmlFor="url">URL imagen</label>
+          <input type="url" name="img_url" onChange={handleChange} />
+        </div>
+
+        {values.title && values.desc && values.img_url ?
+          <button type="submit">Crear destino</button>
+          : <></>}
+
       </form>
 
-    {values.title || values.desc || values.img_url?
-      <div>
-        <h4>Nuevo destino a crear</h4>
-        <p>Título:{values.title}</p>
-        <p>Descripción: {values.desc}</p>
-        <p>URL:{values.img_url}</p>
-      </div>: null}
+      {values.title || values.desc || values.img_url ?
+        <div>
+          <h4>Nuevo destino a crear</h4>
+          <p>Título:{values.title}</p>
+          <p>Descripción: {values.desc}</p>
+          <p>URL:{values.img_url}</p>
+        </div> : null}
 
+      <section>
+        {paintItems()}
+      </section>
 
-      {paintItems()}
     </section>
   );
 }

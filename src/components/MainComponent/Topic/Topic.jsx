@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const Topic = () => {
 
-  const [value, setValue] = useState("christmas"); // Para guardar el dato a buscar
+  const [value, setValue] = useState("holidays"); // Para guardar el dato a buscar
   const [posts, setPosts] = useState([]); // Para guardar los posts
   
   // equivale a un componentDidUpdate()
@@ -32,7 +32,7 @@ const Topic = () => {
   };
 
 
-  return    <section>
+  return    <section className="topic">
               <h1>Topic</h1>
               <form onSubmit={handleSubmit}>
                 <input name="topic"/>

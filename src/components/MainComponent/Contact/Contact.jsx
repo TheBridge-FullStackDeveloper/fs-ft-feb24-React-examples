@@ -7,7 +7,7 @@ const Contact = () => {
   // Creamos un estado para guardar el mensaje que se envía desde el formulario
   const [message, setMessage] = useState(''); 
 
-  return <section>
+  return <section className="contact">
     <h2>Contact</h2>
     <FormContact setMessage={setMessage}/>
     <CardContact message={message}/>

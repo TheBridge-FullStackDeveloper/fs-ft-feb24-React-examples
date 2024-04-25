@@ -1,0 +1,10 @@
+@import "../utils/variables.scss";
+@import "../utils/mixins.scss";
+
+.footer{
+    height:10vh;
+    background-color: $aqua;
+    width:100%;
+    @include centered-content;
+
+}

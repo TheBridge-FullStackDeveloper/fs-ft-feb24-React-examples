@@ -8,9 +8,9 @@ const FormContact = ({ setMessage }) => {
   };
 
   return (
-    <div>
+    <div className="form-contact">
       <input type="text" ref={inputValue}/>
-      <button onClick={handleClick}>Enviar mensaje</button>
+      <button onClick={handleClick} className="water-button">Enviar mensaje</button>
     </div>
   );
 };

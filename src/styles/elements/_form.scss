@@ -1,0 +1,37 @@
+@import '../utils/variables.scss';
+@import '../utils/mixins.scss';
+
+
+.form {
+    border: 1px solid $dark-blue;
+    padding: 16px;
+    border-radius: 8px;
+    min-width: 40vw;
+
+    @include centered-column-layout;
+    @include blue-shadow($accent3);
+    gap: 16px;
+    background-color: white;
+
+    &>div{
+        display: flex;
+        justify-content: space-between;
+        width:100%;
+        padding:16px;
+    }
+
+    & label {
+        margin: 0px;
+        width: 40%;
+    }
+
+    & input {
+        width: 60%;
+        @include input;
+    }
+
+    & textarea {
+        width: 50%;
+    }
+
+}

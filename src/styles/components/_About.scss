@@ -1,0 +1,6 @@
+@import '../utils/mixins.scss';
+
+.about {
+    @include background-card;
+    
+}

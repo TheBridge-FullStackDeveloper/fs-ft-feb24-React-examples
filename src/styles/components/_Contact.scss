@@ -1,0 +1,11 @@
+@import '../utils/mixins.scss';
+
+
+
+
+
+.contact {
+    @include background-card;
+    @include centered-column-layout;
+
+}

@@ -1,0 +1,22 @@
+@import '../utils/mixins.scss';
+
+
+.staff {
+    @include background-card;
+    gap:4px;
+    list-style: none;
+
+    &>li>div {
+        display:flex;
+        justify-content: space-between;
+        min-width:280px;
+        padding:8px;
+        border:1px solid $accent3;
+        border-radius: 8px;
+    }
+
+    & a{
+        font-family: Avenir;
+    }
+
+}

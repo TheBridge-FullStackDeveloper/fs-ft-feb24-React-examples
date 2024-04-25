@@ -51,14 +51,15 @@ const SummerCourse = () => {
   }, [nombre])
   
   return(
-      <form className="mt-4" onSubmit={handleSubmit} >
+      <form className="mt-4 summer-course form" onSubmit={handleSubmit} >
+        <h3>Summer Course SignUp</h3>
           <input type="text" name='nombre' onChange={handleChange}/>
           <input type="text" name='email' />
           <input type="text" name='curso'/>
 
           <textarea name="comentario" placeholder='Comentario' />
 
-          <button type='submit' >Enviar</button>
+          <button type='submit' className="water-button">Enviar</button>
       </form>
 
   )

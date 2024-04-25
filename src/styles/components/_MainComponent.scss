@@ -1,0 +1,10 @@
+@import "../utils/mixins.scss";
+
+.main{
+    min-height:74vh;
+    width:100vw;
+    background-image: url("../../assets/pool-water.webp");
+    @include centered-content;
+
+
+}

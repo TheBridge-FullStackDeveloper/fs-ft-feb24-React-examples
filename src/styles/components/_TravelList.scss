@@ -1,0 +1,28 @@
+@import '../utils/mixins.scss';
+@import '../utils/variables.scss';
+
+
+.travel-list {
+    @include centered-column-layout;
+
+    &>h2 {
+        color: $dark-blue;
+    }
+
+    &>section {
+        padding:32px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 16px;
+
+        &>div {
+            min-width: 240px;
+
+        }
+
+
+    }
+
+
+}
