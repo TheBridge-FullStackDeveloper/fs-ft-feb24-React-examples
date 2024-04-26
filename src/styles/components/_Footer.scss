@@ -1,10 +1,18 @@
 @import "../utils/variables.scss";
 @import "../utils/mixins.scss";
 
-.footer{
+%footer-basic {
     height:10vh;
-    background-color: $aqua;
     width:100%;
     @include centered-content;
+}
 
+.footer-day {
+    @extend %footer-basic;
+    background-color: $aqua;
+}
+
+.footer-night {
+    @extend %footer-basic;
+    background-color: $accent;
 }

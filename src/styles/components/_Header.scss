@@ -1,21 +1,28 @@
 @import "../utils/variables.scss";
 
 
-.header{
+%header-basic {
     display:flex;
     justify-content: space-between;
     align-items: center;
     min-height:16vh;
     width:100%;
-    background-color: $aqua;
     gap:16px;
     padding:8px 24px;
-
 
     &>div{
         display:flex;
         gap: 16px;
         align-items: center;
     }
-
 }
+.header-day{
+    @extend %header-basic;
+    background-color: $aqua;
+}
+
+.header-night{
+    @extend %header-basic;
+    background-color: $accent;
+}
+
