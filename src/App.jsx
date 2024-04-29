@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 import { BrowserRouter } from "react-router-dom";
 import "./styles/styles.scss";
 import Footer from "./components/Footer";
@@ -30,15 +32,17 @@ function App() {
 
   return (
     <>
-      <ThemeContext.Provider value={themeData}>
-        <BrowserRouter>
-          <UserContext.Provider value={userData}>
-            <Header />
-            <MainComponent />
-          </UserContext.Provider>
-        </BrowserRouter>
-        <Footer />
-      </ThemeContext.Provider>
+      <Provider store={store}>
+        <ThemeContext.Provider value={themeData}>
+          <BrowserRouter>
+            <UserContext.Provider value={userData}>
+              <Header />
+              <MainComponent />
+            </UserContext.Provider>
+          </BrowserRouter>
+          <Footer />
+        </ThemeContext.Provider>
+      </Provider>
     </>
   );
 }

@@ -7,6 +7,7 @@ import Contact from "./Contact";
 import Staff from "./Staff";
 import SummerCourse from "./SummerCourse";
 import Topic from "./Topic";
+import Donations from "./Donations";
 
 function MainComponent() {
   return (
@@ -19,6 +20,7 @@ function MainComponent() {
         <Route path="/staff" element={<Staff />} />
         <Route path="/summercourse" element={<SummerCourse />} />
         <Route path="/topic" element={<Topic />} />
+        <Route path="/donations" element={<Donations />} />
         <Route path="/*" element={<Navigate to={"/"} />} />
       </Routes>
     </main>
