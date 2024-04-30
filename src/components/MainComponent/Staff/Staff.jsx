@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { FidgetSpinner, Hourglass } from 'react-loader-spinner'
+
 
 const Staff = () => {
 
@@ -8,6 +10,8 @@ const Staff = () => {
     const getPokemons = async () => {
       const resp = await fetch('https://pokeapi.co/api/v2/pokemon');
       const data = await resp.json();
+       // simular retardo de llamada a API
+       await new Promise((resolve, reject) => setTimeout(resolve, 2000));
       setPokemons(data);
     }
     getPokemons();
@@ -24,7 +28,28 @@ const Staff = () => {
             </div>
           </li>
         ))
-        : <p>carganding...</p>}
+        : 
+        <>
+          <p>Carganding...</p>
+          <Hourglass
+          visible={true}
+          height="80"
+          width="200"
+          ariaLabel="hourglass-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          colors={['#306cce', '#72a1ed']}
+          />
+          <FidgetSpinner
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="fidget-spinner-loading"
+          wrapperStyle={{}}
+          wrapperClass="fidget-spinner-wrapper"
+          />
+        </>
+        }
     </ul>
   );
 
